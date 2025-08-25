@@ -4,3 +4,5 @@ helm upgrade --install nginx-ingress ingress-nginx/ingress-nginx -f ingress.yaml
 # echo ${kubectl get svc nginx-ingress-ingress-nginx-controller | awk '{print $4}' | tail -1}
 kubectl create namespace argocd
 kubectl apply -f ingress-dev.yaml -n argocd
+
+
