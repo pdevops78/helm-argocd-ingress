@@ -3,7 +3,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.component }}
-  namespace: argocd
   labels:
     appName: {{ .Values.labels.appName }}
     projectName: {{ .Chart.Name }}
@@ -20,4 +19,4 @@ spec:
                 name: {{ .Values.component }}
                 port:
                   number: 80
-  {{- end -}}
+{{- end -}}
