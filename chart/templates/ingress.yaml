@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.component }}
   labels:
     appName: {{ .Values.labels.appName }}
-    project_Name: {{ .Values.labels.appName }}
+    project_Name: {{ .Values.labels.project_name }}
 spec:
   ingressClassName: nginx
   rules:
