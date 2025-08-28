@@ -5,18 +5,18 @@ metadata:
   namespace: argocd
   labels:
     appName: {{ .Values.labels.appName }}
-    project_Name: {{ .Values.labels.appName }}
+    project_Name: {{ .Chart.Name }}
 spec:
   replicas: 2
   selector:
     matchLabels:
       appName: {{ .Values.labels.appName }}
-      project_Name: {{ .Values.labels.appName }}
+      project_Name: {{ .Chart.Name }}
   template:
     metadata:
       labels:
         appName: {{ .Values.labels.appName }}
-        project_Name: {{ .Values.labels.appName }}
+        project_Name: {{ .Chart.Name }}
     spec:
     {{- if .Values.initContainers.enabled }}
     volumes:

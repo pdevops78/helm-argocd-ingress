@@ -10,8 +10,8 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+      port: {{ .Values.ports.port }}
+      targetPort: {{ .Values.ports.targetPort }}
   type: {{ .Values.service.type }}
 
 
