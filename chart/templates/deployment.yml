@@ -18,42 +18,42 @@ spec:
         appName: frontend
         project_Name: expense
     spec:
-    {{- if .Values.initContainers.enabled }}
-    volumes:
-      - name: secrets
-        emptyDir:
-          sizeLimit: 5Mi
-    initContainers:
-      - name: vault-secrets
-        image: pavanidevops78/kubernetes:p2
-        env:
-          - name: VAULT_ADDR
-            value: "https://vault-internal.pdevops78.online:8200"
-          - name: VAULT_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: vault-token
-                key: token
-          - name: SECRET_NAME
-            value: common/{{ .Values.labels.project_name }}-{{ .Values.component }}
-          - name: VAULT_SKIP_VERIFY
-            value: "TRUE"
-        volumeMounts:
-          - name: secrets
-            mountPath: /data
+      {{- if .Values.initContainers.enabled }}
+      volumes:
+        - name: secrets
+          emptyDir:
+            sizeLimit: 5Mi
+      initContainers:
+        - name: vault-secrets
+          image: pavanidevops78/kubernetes:p2
+          env:
+            - name: VAULT_ADDR
+              value: "https://vault-internal.pdevops78.online:8200"
+            - name: VAULT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: vault-token
+                  key: token
+            - name: SECRET_NAME
+              value: common/{{ .Values.labels.project_name }}-{{ .Values.component }}
+            - name: VAULT_SKIP_VERIFY
+              value: "TRUE"
+          volumeMounts:
+            - name: secrets
+              mountPath: /data
 
-      - name: schema
-        image: pavanidevops78/kubernetes:s7
-        volumeMounts:
-          - name: secrets
-            mountPath: /data
-    {{- end }}
+        - name: schema
+          image: pavanidevops78/kubernetes:s7
+          volumeMounts:
+            - name: secrets
+              mountPath: /data
+      {{- end }}
 
-    containers:
-      - name: {{ .Values.component }}
-        image: pavanidevops78/kubernetes:f1
-    {{- if .Values.initContainers.enabled }}
-    volumeMounts:
-      - name: secrets
-        mountPath: /data
-    {{- end }}
+      containers:
+        - name: {{ .Values.component }}
+          image: pavanidevops78/kubernetes:f1
+          {{- if .Values.initContainers.enabled }}
+          volumeMounts:
+            - name: secrets
+              mountPath: /data
+          {{- end }}
