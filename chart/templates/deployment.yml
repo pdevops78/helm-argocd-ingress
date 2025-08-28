@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.component }}
+  name: frontend
   namespace: argocd
   labels:
-    appName: {{ .Values.labels.appName }}
-    project_Name: {{ .Chart.Name }}
+    appName: frontend
+    project_Name: expense
 spec:
   replicas: 2
   selector:
     matchLabels:
-      appName: {{ .Values.labels.appName }}
-      project_Name: {{ .Chart.Name }}
+      appName: frontend
+      project_Name: expense
   template:
     metadata:
       labels:
-        appName: {{ .Values.labels.appName }}
-        project_Name: {{ .Chart.Name }}
+        appName: frontend
+        project_Name: expense
     spec:
     {{- if .Values.initContainers.enabled }}
     volumes:
@@ -25,7 +25,7 @@ spec:
           sizeLimit: 5Mi
     initContainers:
       - name: vault-secrets
-        image: pavanidevops78/kubernetes:{{ .Values.initContainers.imageVersion }}
+        image: pavanidevops78/kubernetes:p2
         env:
           - name: VAULT_ADDR
             value: "https://vault-internal.pdevops78.online:8200"
@@ -43,7 +43,7 @@ spec:
             mountPath: /data
 
       - name: schema
-        image: pavanidevops78/kubernetes:{{ .Values.schema.schema_imageVersion }}
+        image: pavanidevops78/kubernetes:s7
         volumeMounts:
           - name: secrets
             mountPath: /data
@@ -51,7 +51,7 @@ spec:
 
     containers:
       - name: {{ .Values.component }}
-        image: pavanidevops78/kubernetes:{{ .Values.containers.cont_imageVersion }}
+        image: pavanidevops78/kubernetes:f1
     {{- if .Values.initContainers.enabled }}
     volumeMounts:
       - name: secrets
