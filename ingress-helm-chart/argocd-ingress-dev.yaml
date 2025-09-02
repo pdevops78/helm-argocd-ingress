@@ -22874,3 +22874,7 @@ spec:
                 port:
                   number: 443
             path: /
+
+
+
+#  helm install external-dns external-dns/external-dns --namespace kube-system  --set serviceAccount.create=false --set serviceAccount.name=external-dns
