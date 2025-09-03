@@ -10,7 +10,7 @@ selector:
 initContainers:
   enabled: false
 containers:
-  cont_imageVersion: f1
+  appVersion: f1
   name: frontend
 service:
   type: ClusterIP

@@ -13,7 +13,7 @@ initContainers:
 schema:
   schema_imageVersion: s7
 containers:
-  cont_imageVersion: p1
+  appVersion: p1
   name: backend
 service:
   type: ClusterIP
