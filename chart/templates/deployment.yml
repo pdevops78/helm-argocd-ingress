@@ -35,7 +35,7 @@ spec:
                   name: vault-token
                   key: token
             - name: SECRET_NAME
-              value: roboshop-dev/{{ .Values.component }}
+              value: roboshop-dev/catalogue
             - name: VAULT_SKIP_VERIFY
               value: "TRUE"
           volumeMounts:
