@@ -51,7 +51,7 @@ spec:
 
       containers:
         - name: {{ .Values.component }}
-          image: pavanidevops78/kubernetes:f1
+          image: pavanidevops78/kubernetes:1.0.0
       {{- if .Values.initContainers.enabled }}
           volumeMounts:
             - name: secrets
