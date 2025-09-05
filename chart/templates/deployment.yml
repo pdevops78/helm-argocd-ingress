@@ -43,7 +43,7 @@ spec:
               mountPath: /data
 
         - name: schema
-          image: pavanidevops78/kubernetes:{{ .Values.schema.schema_imageVersion }}
+          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/vault-initcontainer:1.0.1
           volumeMounts:
             - name: secrets
               mountPath: /data
