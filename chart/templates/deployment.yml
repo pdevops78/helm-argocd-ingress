@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: {{ .Values.metadata.name }}
   namespace: argocd
   labels:
-    appName: frontend
+    appName: {{ .Values.labels.appName }}
     project_Name: expense
 spec:
   replicas: 2
   selector:
     matchLabels:
-      appName: frontend
+      appName: {{ .Values.labels.appName }}
       project_Name: expense
   template:
     metadata:
       labels:
-        appName: frontend
+        appName: {{ .Values.labels.appName }}
         project_Name: expense
     spec:
      {{- if .Values.initContainers.enabled }}
