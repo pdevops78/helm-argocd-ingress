@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         appName: frontend
-        project_Name: argocd
+        project_Name: expense
     spec:
      {{- if .Values.initContainers.enabled }}
       volumes:
