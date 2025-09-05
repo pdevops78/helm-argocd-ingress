@@ -1,0 +1,23 @@
+metadata:
+  name: catalogue
+component: catalogue
+labels:
+  appName: catalogue
+  project_name: expense
+selector:
+  appName: catalogue
+  project_name: expense
+initContainers:
+  enabled: false
+containers:
+  appVersion: 1.0.1
+  name: catalogue
+service:
+  type: ClusterIP
+ports:
+  protocol: TCP
+  port: 8080
+  targetPort: 8080
+
+ingress:
+  enabled: false
