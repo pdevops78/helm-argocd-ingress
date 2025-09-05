@@ -85,3 +85,8 @@ arn:aws:eks:us-east-1:041445559784:cluster/eks-cluster-dev
 Platform version
 Info
 eks.12
+
+
+
+STATE
+ImagePullBackOff
