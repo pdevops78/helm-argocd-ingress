@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.component }}
+  name: frontend
   namespace: argocd
   labels:
-    appName: {{ .Values.labels.appName }}
-    project_Name: {{ .Chart.name }}
+    appName: frontend
+    project_Name: expense
 spec:
   replicas: 2
   selector:
     matchLabels:
-      appName: {{ .Values.labels.appName }}
-      project_Name: {{ .Chart.name }}
+      appName: frontend
+      project_Name: expense
   template:
     metadata:
       labels:
-        appName: {{ .Values.labels.appName }}
-        project_Name: {{ .Chart.name }}
+        appName: frontend
+        project_Name: argocd
     spec:
       {{- if .Values.initContainers.enabled }}
       volumes:
@@ -51,7 +51,7 @@ spec:
 
       containers:
         - name: {{ .Values.component }}
-          image: pavanidevops78/kubernetes:{{ .Values.containers.appVersion }}
+          image: pavanidevops78/kubernetes:f1
           {{- if .Values.initContainers.enabled }}
           volumeMounts:
             - name: secrets
