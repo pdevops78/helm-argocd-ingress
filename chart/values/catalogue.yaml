@@ -9,6 +9,8 @@ selector:
   project_name: expense
 initContainers:
   enabled: false
+  imageVersion: 1.0.1
+
 containers:
   appVersion: 1.0.1
   name: catalogue
