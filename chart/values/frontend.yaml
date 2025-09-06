@@ -10,7 +10,7 @@ selector:
 initContainers:
   enabled: false
 containers:
-  appVersion: 1.0.3
+  appVersion: f1
   name: frontend
 schema:
    enabled: false
