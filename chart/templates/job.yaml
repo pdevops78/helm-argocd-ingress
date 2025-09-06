@@ -19,7 +19,7 @@ spec:
           emptyDir: {}
       initContainers:
         - name: get-secrets
-          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/vault-initcontainer:{{ .Values.initContainers.imageVersion }}
+          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/vault-initcontainer:1.0.3
           env:
             - name: VAULT_ADDR
               value: "https://vault-internal.pdevops78.online:8200"
