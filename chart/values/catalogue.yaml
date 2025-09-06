@@ -8,8 +8,8 @@ selector:
   appName: catalogue
   project_name: expense
 initContainers:
-  enabled: false
-  imageVersion: 1.0.3
+  enabled: true
+  imageVersion: 1.0.4
 schema:
   schema_imageVersion: 1.0.1
   enabled: true
