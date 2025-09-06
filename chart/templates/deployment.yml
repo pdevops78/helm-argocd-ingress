@@ -5,18 +5,18 @@ metadata:
   namespace: argocd
   labels:
     appName: {{ .Values.labels.appName }}
-    project_Name: expense
+    project_Name: {{ .Chart.Name }}
 spec:
   replicas: 2
   selector:
     matchLabels:
       appName: {{ .Values.labels.appName }}
-      project_Name: expense
+      project_Name: {{ .Chart.Name }}
   template:
     metadata:
       labels:
         appName: {{ .Values.labels.appName }}
-        project_Name: expense
+        project_Name: {{ .Chart.Name }}
     spec:
      {{- if .Values.initContainers.enabled }}
       volumes:
@@ -42,11 +42,6 @@ spec:
             - name: secrets
               mountPath: /data
 
-        - name: schema
-          image: pavanidevops78/kubernetes:{{ .Values.schema.schema_imageVersion }}
-          volumeMounts:
-            - name: secrets
-              mountPath: /data
       {{- end }}
 
       containers:

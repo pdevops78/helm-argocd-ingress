@@ -9,9 +9,10 @@ selector:
   project_name: expense
 initContainers:
   enabled: false
-  imageVersion: 1.0.1
+  imageVersion: 1.0.3
 schema:
-  schema_imageVersion: s7
+  schema_imageVersion: 1.0.1
+  enabled: true
   db_name: mongo
 containers:
   appVersion: 1.0.1
