@@ -15,7 +15,7 @@ spec:
         projectName: {{ .Chart.Name }}
     spec:
       volumes:
-        - name: vault-secret
+        - name: secrets
           emptyDir: {}
       initContainers:
         - name: get-secrets
