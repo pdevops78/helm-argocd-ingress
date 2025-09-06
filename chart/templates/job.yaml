@@ -43,7 +43,7 @@ spec:
             - name: db_type
               value: "{{ .Values.schema.db_type }}"
           volumeMounts:
-            - name: vault-secret
+            - name: secrets
               mountPath: /data
       restartPolicy: Never
   backoffLimit: 1
