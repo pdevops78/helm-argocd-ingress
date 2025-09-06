@@ -12,6 +12,8 @@ initContainers:
 containers:
   appVersion: 1.0.3
   name: frontend
+schema:
+   enabled: false
 service:
   type: ClusterIP
 ports:
