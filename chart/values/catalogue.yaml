@@ -15,7 +15,7 @@ schema:
   enabled: true
   db_name: mongo
 containers:
-  appVersion: 1.0.2
+  appVersion: 1.0.3
   name: catalogue
 service:
   type: ClusterIP
