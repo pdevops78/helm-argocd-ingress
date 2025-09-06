@@ -41,7 +41,11 @@ spec:
           volumeMounts:
             - name: secrets
               mountPath: /data
-
+        - name: schema
+          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/backend-schema:{{ .Values.schema.schema_imageVersion }}
+          volumeMounts:
+            - name: secrets
+              mountPath: /data
       {{- end }}
 
       containers:
