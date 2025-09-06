@@ -19,7 +19,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.component }}
+                name: frontend
                 port:
                   number: 80
 {{- end -}}
