@@ -10,7 +10,9 @@ selector:
 initContainers:
   enabled: false
   imageVersion: 1.0.1
-
+schema:
+  schema_imageVersion: s7
+  db_name: mongo
 containers:
   appVersion: 1.0.1
   name: catalogue
@@ -20,6 +22,5 @@ ports:
   protocol: TCP
   port: 8080
   targetPort: 8080
-
 ingress:
   enabled: false
