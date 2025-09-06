@@ -22,18 +22,18 @@ spec:
           image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/vault-initcontainer:{{ .Values.initContainers.imageVersion }}
           env:
             - name: VAULT_ADDR
-              value: https://vault-internal.pdevops78.online:8200
+              value: "https://vault-internal.pdevops78.online:8200"
             - name: VAULT_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: vault-token
                   key: token
             - name: SECRET_NAME
-              value: {{ .Chart.Name }}-dev/{{ .Values.component }}
+              value: roboshop-dev/catalogue
             - name: VAULT_SKIP_VERIFY
-            value: "TRUE"
+              value: "TRUE"
           volumeMounts:
-            - name: vault-secret
+            - name: secrets
               mountPath: /data
 
       containers:
