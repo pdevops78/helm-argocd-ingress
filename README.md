@@ -90,3 +90,10 @@ eks.12
 
 STATE
 ImagePullBackOff
+
+install external dns:
+=====================
+** helm repo add bitnami https://charts.bitnami.com/bitnami
+** helm repo add external-dns https://kubernetes-sigs.github.io/external-dns/
+2541  02/09/25 09:48:24 helm search repo external-dns --versions | grep 1.17.0
+** helm install external-dns bitnami/external-dns   --namespace default   --set provider=aws   --set aws.region=us-east-1   --set txtOwnerId=my-cluster   --set serviceAccount.name=dns-sa   --set serviceAccount.create=false

@@ -9,8 +9,11 @@ metadata:
     projectName: {{ .Chart.Name }}
 spec:
   template:
+    metadata:
+      labels:
+        appName: {{ .Values.labels.appName }}
+        projectName: {{ .Chart.Name }}
     spec:
-
       volumes:
         - name: vault-secret
           emptyDir: {}
@@ -28,7 +31,7 @@ spec:
             - name: SECRET_NAME
               value: {{ .Chart.Name }}-dev/{{ .Values.component }}
             - name: VAULT_SKIP_VERIFY
-              value: "TRUE"
+            value: "TRUE"
           volumeMounts:
             - name: vault-secret
               mountPath: /data
@@ -38,7 +41,7 @@ spec:
           image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/backend-schema:{{ .Values.schema.schema_imageVersion }}
           env:
             - name: db_type
-              value: {{ .Values.schema.db_type }}
+              value: "{{ .Values.schema.db_type }}"
           volumeMounts:
             - name: vault-secret
               mountPath: /data
