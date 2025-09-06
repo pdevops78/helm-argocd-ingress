@@ -97,3 +97,20 @@ install external dns:
 ** helm repo add external-dns https://kubernetes-sigs.github.io/external-dns/
 2541  02/09/25 09:48:24 helm search repo external-dns --versions | grep 1.17.0
 ** helm install external-dns bitnami/external-dns   --namespace default   --set provider=aws   --set aws.region=us-east-1   --set txtOwnerId=my-cluster   --set serviceAccount.name=dns-sa   --set serviceAccount.create=false
+
+
+2. Decode and Check the Token Inside the Secret
+
+To decode the token:
+
+kubectl get secret vault-token -n argocd -o jsonpath='{.data.token}' | base64 -d
+🔹 3. Check InitContainer Logs
+
+Get the Job name:
+
+kubectl get jobs -n argocd
+
+
+Then check pod logs:
+
+kubectl logs <pod-name> -n argocd -c get-secrets
