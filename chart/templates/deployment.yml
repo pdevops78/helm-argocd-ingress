@@ -25,7 +25,7 @@ spec:
             sizeLimit: 5Mi
       initContainers:
         - name: vault-secrets
-          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/vault-initcontainer:1.0.4
+          image: 041445559784.dkr.ecr.us-east-1.amazonaws.com/vault-initcontainer:1.0.1
           env:
             - name: VAULT_ADDR
               value: "https://vault-internal.pdevops78.online:8200"
