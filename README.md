@@ -114,3 +114,16 @@ kubectl get jobs -n argocd
 Then check pod logs:
 
 kubectl logs <pod-name> -n argocd -c get-secrets
+
+
+
+
+
+
+
+
+
+
+
+
+Error: ImagePullBackOff means image version differ
