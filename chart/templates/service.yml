@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
 spec:
   selector:
-    appName: {{ .Values.component }}
-    projectName: {{ .Chart.Name }}
+    appName: {{ .Values.labels.appName }}
+    project_Name: {{ .Chart.Name }}
   ports:
     - name: http
       protocol: TCP
