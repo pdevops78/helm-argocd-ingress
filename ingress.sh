@@ -6,4 +6,3 @@ argocd login $(kubectl get ingress -A| grep argocd | awk '{print $4}') --usernam
 
 
 
-  argocd app create frontend --repo https://github.com/pdevops78/eks-deploy-helm.git --path chart --upsert --dest-server https://kubernetes.default.svc --dest-namespace default --insecure  --grpc-web --values values/frontend.yaml
